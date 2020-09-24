@@ -75,7 +75,7 @@ function App() {
    
 
     setTimeout(runSimulation, 100)
-  }, [])
+  }, [count])
   
   return (
     <>
