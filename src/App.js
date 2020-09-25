@@ -35,6 +35,8 @@ function App() {
   }
 
 
+
+
   const [running, setRunning] = useState(false);
 
   let [count, setCount] = useState(0)
@@ -48,6 +50,8 @@ function App() {
     
     else{setCount(count++)
     }
+
+  
 
     setGrid(g =>{
       return produce(g, gridCopy =>{
@@ -91,6 +95,13 @@ function App() {
         if (!runningRef.current){
           return;}
       }}>clear</button>
+      <button onClick={()=>{
+            const rows = []
+            for (let i=0; i< numRows; i++){
+              rows.push(Array.from(Array(numCols), ()=> Math.round(Math.random())))
+            }
+            setGrid(rows)
+      }}>random</button>
       <div className="App"
       style={{
         display: 'grid',
