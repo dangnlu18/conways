@@ -35,9 +35,8 @@ function App() {
   }
 
 
-
-
   const [running, setRunning] = useState(false);
+  const [speed, setSpeed] = useState(100)
 
   let [count, setCount] = useState(0)
 
@@ -78,8 +77,17 @@ function App() {
 
    
 
-    setTimeout(runSimulation, 100)
+    setTimeout(runSimulation, speed)
   }, [count])
+
+  const speedChange = (e) =>{
+    setSpeed(e.target.value)
+  }
+
+  const handleSpeed = e =>{
+    e.preventDefault()
+   console.log(speed)
+  }
   
   return (
     <>
@@ -102,6 +110,10 @@ function App() {
             }
             setGrid(rows)
       }}>random</button>
+      <form onSubmit={handleSpeed}>
+      <input  placeholder='speed (enter value)' handleChange={speedChange} value={speed}></input>
+      </form>
+      
       <div className="App"
       style={{
         display: 'grid',
