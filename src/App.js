@@ -78,7 +78,7 @@ function App() {
    
 
     setTimeout(runSimulation, speed)
-  }, [count])
+  }, [count, speed])
 
   const speedChange = (e) =>{
     setSpeed(e.target.value)
