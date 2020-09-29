@@ -119,6 +119,7 @@ function App() {
             setGrid(rows)
       }}>random</button>
       <form onSubmit={handleSpeed}>
+        <label>Select speed:</label><br></br>
         <select value={speed} onChange={speedChange}>
           <option value='10'>10</option>
           <option selected value='100'>100</option>
