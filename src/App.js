@@ -91,6 +91,14 @@ function App() {
   
   return (
     <>
+      <h1>Conway's Game of Life</h1>
+      <h3>Rules</h3>
+      <ul>
+        <li>Any live cell with two or three live neighbours survives.</li>
+        <li>Any dead cell with three live neighbours becomes a live cell.</li>
+        <li>All other live cells die in the next generation.</li>
+        <li>Similarly, all other dead cells stay dead.</li>
+      </ul>
       <h4>Counter: {count}</h4>
       <button onClick ={() => {
         setRunning(!running);
@@ -111,7 +119,14 @@ function App() {
             setGrid(rows)
       }}>random</button>
       <form onSubmit={handleSpeed}>
-      <input  placeholder='speed (enter value)' handleChange={speedChange} value={speed}></input>
+        <select value={speed} onChange={speedChange}>
+          <option value='10'>10</option>
+          <option selected value='100'>100</option>
+          <option value='1000'>1000</option>
+          <option value='10000'>10000</option>
+
+        </select>
+      {/* <input  placeholder='speed (enter value)' onChange={speedChange} value={speed}></input> */}
       </form>
       
       <div className="App"
@@ -132,8 +147,8 @@ function App() {
             style = {{
               width: 20,
               height: 20,
-              backgroundColor: grid[i][k] ? 'black' : undefined,
-              border: 'solid 1px black'
+              backgroundColor: grid[i][k] ? 'red' : 'pink',
+              border: 'solid 1px white'
             }}>
       
             </div>
